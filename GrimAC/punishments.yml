@@ -1,0 +1,67 @@
+# %check_name% - name of the check
+# %vl% - violations
+# %verbose% - extra information
+# %player% - player name
+# [alert] - special command to alert
+Punishments:
+  Simulation:
+    # After how many seconds should a violation be removed?
+    remove-violations-after: 20
+    checks:
+      - "Simulation"
+      - "GroundSpoof"
+      - "Knockback"
+      - "Explosion"
+      - "Timer"
+      - "NoFall"
+    # Threshold:Interval Command
+    commands:
+      - "0:10 [alert]"
+      - "0:70 kick %player% S | NekoLite"
+  Post:
+    remove-violations-after: 30
+    checks:
+      - "Post"
+    commands:
+      - "0:10 [alert]"
+      - "0:30 kick %player% P | NekoLite"
+  BadPackets:
+    remove-violations-after: 30
+    checks:
+      - "BadPackets"
+      - "Crash"
+    commands:
+      - "0:20 [alert]"
+      # - "0:40 kick %player% BadPackets GrimAC"
+  Reach:
+    remove-violations-after: 120
+    checks:
+      - "Reach"
+    commands:
+      - "0:5 [alert]"
+      - "0:15 kick %player% R | NekoLite"
+      # - "0:15 kick %player% Reach GrimAC"
+  Misc:
+    remove-violations-after: 30
+    checks:
+      - "EntityControl"
+      - "NoSlow"
+      - "Place"
+    commands:
+      - "0:2 [alert]"
+      - "0:10 kick %player% M | NekoLite"
+  Combat:
+    remove-violations-after: 300
+    checks:
+      - "Killaura"
+      - "Aim"
+    commands:
+      - "0:1 [alert]"
+      - "0:5 kick %player% C | NekoLite"
+  # As of 2.2.10, there are no AutoClicker checks and this is a placeholder. 2.3 will include AutoClicker checks.
+  Autoclicker:
+    remove-violations-after: 30
+    checks:
+      - "Autoclicker"
+    commands: 
+      - "0:2 [alert]"
